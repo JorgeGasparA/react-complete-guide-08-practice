@@ -1,0 +1,21 @@
+.container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: flex-start;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+.form button{
+    width: 50%;
+    align-self: center;
+}
+.form-field{
+    color:white;
+    display: flex;
+    flex-direction: column;
+}
