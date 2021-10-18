@@ -9,10 +9,12 @@
     flex-direction: column;
     justify-content: center;
     align-content: center;
+    margin-top: 1em;
 }
 .form button{
     width: 50%;
     align-self: center;
+    margin-top: 1em;
 }
 .form-field{
     color:white;

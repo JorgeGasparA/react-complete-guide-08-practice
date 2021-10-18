@@ -4,6 +4,11 @@ import styles from './UserForm.module.css';
 function UserForm(props) {
 	const [userName, setUsername] = useState('');
 	const [userAge, setUserAge] = useState('');
+	
+	let errorObj = {
+		state: false,
+		message: ''
+	}
 
 	const changeNameHandler = event => {
 		setUsername(event.target.value);
@@ -11,6 +16,17 @@ function UserForm(props) {
 	const changeAgeHandler = event => {
 		setUserAge(event.target.value);
 	};
+	const validateUser = newUser => {
+		if(newUser.name.length === 0){			
+			errorObj.message = 'Name must not be empty!'
+			return true
+		}
+		if(newUser.age <= 0){
+			errorObj.message = 'Age must be greater than zero!'
+			return true
+		}
+		return false
+	}
 	const submitHandler = event => {
 		event.preventDefault();        
 
@@ -18,10 +34,18 @@ function UserForm(props) {
 			name: userName,
 			age: +userAge,
 		};
-		props.onUserAdded(newUser);
-
-		setUsername('');
-		setUserAge('');
+		
+		if(validateUser(newUser)){
+			errorObj.state = true
+			props.onValidationError(errorObj)
+		}else{
+			errorObj.state = false
+			errorObj.message = ''
+			props.onValidationError(errorObj)
+			props.onUserAdded(newUser);
+			setUsername('');
+			setUserAge('');
+		}
 	};
 
 	return (

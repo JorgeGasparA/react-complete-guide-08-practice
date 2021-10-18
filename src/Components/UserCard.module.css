@@ -1,3 +1,11 @@
-.UserCard{
-    width: 50%;
+.UserCard {
+	color: white;
+	display: flex;
+	justify-content: flex-start;
+	background-color: gray;
+	width: 12em;
+	border-radius: 5px;
+	margin-top: 0.5em;
+    padding-left: 1em;
+    padding-right: 1em;
 }
